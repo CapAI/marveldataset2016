@@ -14,7 +14,7 @@ import os
 FILE_TO_DOWNLOAD_FROM = "VesselClassification.dat"
 ##FILE_TO_DOWNLOAD_FROM = "IMOTrainAndTest.dat" 
 
-NUMBER_OF_WORKERS = 10
+NUMBER_OF_WORKERS = 8
 MAX_NUM_OF_FILES_IN_FOLDER = 5000
 IMAGE_HEIGHT = 256
 IMAGE_WIDTH = 256
@@ -56,7 +56,6 @@ def save_image(ID,justImage,outFolder):
             if ORIGINAL_SIZE == 0:
                 img = Image.open(os.path.join(outFolder,filename)).resize((IMAGE_HEIGHT,IMAGE_WIDTH), Image.ANTIALIAS)
                 os.remove(os.path.join(outFolder,filename))
-                print(outFolder, filename)
                 with open(os.path.join(outFolder,filename),"wb") as out:
                     img.save(out,"JPEG")
             break
